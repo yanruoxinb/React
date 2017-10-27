@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="af9de9f8-901c-4b03-b216-edf1ef12fd53" name="developEnv" url="http://planettest.boomegg.cn">
+        <fileTransfer host="planettest.boomegg.cn" port="10280" rootFolder="/home/yiyue/wwwroot" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="10280" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

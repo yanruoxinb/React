@@ -1,13 +1,15 @@
+import React, {Component} from 'react';
+import { IndexRoute} from 'react-router';
+import ReactDOM from 'react-dom';
+// import {Route, BrowserRouter as Router} from 'react-router-dom';
+// import ProjectSider from "./ProjectSider.js";
+// import SliderDemo from "./SlideDemo";
+// import LoginTest from  "./components/LoginTest.js";
+import BasicExample from "./testRouter"
 
-import React,{Component} from 'react'
-import ReactDOM from 'react-dom'
-import App from "./App.js";
-import SiderDemo from "./SlideDemo";
-import NavDemo from "./NavDemo"
 ReactDOM.render(
-    <NavDemo/>,
-    document.getElementById("app")
-)
 
-
+    <BasicExample/>,
+    document.getElementById('app')
+);
 

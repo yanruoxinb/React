@@ -1,7 +1,7 @@
 /**
  * Created by belle on 2017/10/27.
  */
-import {Layout, Menu, Breadcrumb, Icon, Row, Col, Button} from 'antd';
+import {Layout, Menu, Breadcrumb, Icon, Row, Col, Button, MenuItem, Dropdown} from 'antd';
 
 import React, {Component}from "react";
 const {Header, Content, Footer, Sider} = Layout;
@@ -17,45 +17,48 @@ class SiderDemo extends React.Component {
             console.log(collapsed);
             this.setState({collapsed});
         };
+        this.option = <Menu>
+            <Menu.Item>
+                <a target="_blank">新增项目</a>
+            </Menu.Item>
+            <Menu.Divider/>
+            <Menu.Item>
+                <a target="_blank">查询项目信息</a>
+            </Menu.Item>
+            <Menu.Divider/>
+            <Menu.Item>
+                <a target="_blank">修改项目信息</a>
+            </Menu.Item>
+        </Menu>;
     }
 
+
+    /**
+     * xs <768
+     * sm >=768
+     * md >=992
+     * lg >=1200
+     * xl >=1600
+     */
+
     render() {
+
         return (
-            <Layout style={{minHeight: '100vh'- '100px'}}>
-                <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
-                    <div className="logo"></div>
-                    <Menu defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} mode="inline"
+            <Layout style={{minHeight: '100vh'}}>
+                <Sider
+                    collapsible
+                    collapsed={this.state.collapsed}
+                    onCollapse={this.onCollapse}
+                >
+                    <div className="logo"/>
+                    <Menu defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']}
                           theme="light"
-                          inlineCollapsed={this.state.collapsed}>
-                        <SubMenu key="sub1" title={<span>
-                                                     <Icon
-                                                         type="appstore"/><span>转盘世家</span></span>}>
-                            <Menu.Item key="alipay">支付宝</Menu.Item>
+                          inlineCollapsed={this.state.collapsed} mode='inline'>
+                        <SubMenu key="sub1" title={<span><Icon type="appstore"/><span>转盘世家</span></span>}>
+
                             <Menu.Item key="zh-TW">繁体版</Menu.Item>
                             <Menu.Item key="newMahe">新马</Menu.Item>
                             <Menu.Item key="elex">Elex</Menu.Item>
-                            <Menu.Item key="multiLanguage">多语言版</Menu.Item>
-                            <Menu.Item key="euler">欧拉</Menu.Item>
-                            <Menu.Item key="yogrt">yogrt</Menu.Item>
-                            <Menu.Item key="1">越语版</Menu.Item>
-                            <Menu.Item key="2">阿凡提</Menu.Item>
-                            <Menu.Item key="3">宠物版</Menu.Item>
-                            <Menu.Item key="4">Qzone</Menu.Item>
-                            <Menu.Item key="5">官方联运</Menu.Item>
-                            <Menu.Item key="6">腾讯游戏大厅</Menu.Item>
-
-                            <Menu.Item key="2">3d_funplus</Menu.Item>
-                            <Menu.Item key="3">R2网页版</Menu.Item>
-                            <Menu.Item key="4">vk</Menu.Item>
-                            <Menu.Item key="5">弹弹手Q版</Menu.Item>
-                            <Menu.Item key="5">弹弹微信版</Menu.Item>
-                            <Menu.Item key="6">支付宝H5</Menu.Item>
-                            <Menu.Item key="2">kakao</Menu.Item>
-                            <Menu.Item key="3">龙城网络</Menu.Item>
-                            <Menu.Item key="4">中东</Menu.Item>
-                            <Menu.Item key="5">空间微信版</Menu.Item>
-
-
                         </SubMenu>
 
                         <SubMenu key="sub2" title=
@@ -65,8 +68,12 @@ class SiderDemo extends React.Component {
                             <Menu.Item key="9">SharkBoom</Menu.Item>
                         </SubMenu>
 
-                        <SubMenu key="sub3" title={<span><Icon type="appstore"/><span>三只小猪</span></span>}>
-                            <Menu.Item key="10">三只小猪多语言</Menu.Item>
+                        <SubMenu mode='vertical' key="sub3"
+                                 title={<span><Icon type="appstore"/><span>三只小猪</span></span>}>
+                            <SubMenu key="10" title="三只小猪多语言">
+                                <Menu.Item >bbbbbb</Menu.Item>
+                                <Menu.Item mode='horizal'>aaaaa</Menu.Item>
+                            </SubMenu>
 
                         </SubMenu>
                         <SubMenu key="sub4" title={<span><Icon
@@ -77,35 +84,37 @@ class SiderDemo extends React.Component {
                     </Menu>
                 </Sider>
                 <Layout>
-                    <Header style={{background: '#fff', padding: 0}}/>
+                    <Header style={{background: '#fff', padding: 0,fontsize:40}}>Aladin</Header>
                     <Content style={{margin: '0 16px'}}>
                         <Breadcrumb style={{margin: '16px 0'}}>
-                            <Breadcrumb.Item>User</Breadcrumb.Item>
-                            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+                            <Breadcrumb.Item>后台</Breadcrumb.Item>
+                            <Breadcrumb.Item>项目管理</Breadcrumb.Item>
                         </Breadcrumb>
                         <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
+                            {/*<Dropdown overlay={this.option}>*/}
+                                {/*<button className="ant-btn ant-btn-menu">*/}
+                                    {/*请选择将要进行的操作<i className="anticon anticon-down"></i></button>*/}
+                            {/*</Dropdown>*/}
+
+                            <Menu  selectedKeys={[this.state.current]} mode="horizontal">
+                                <Menu.Item key="new">
+                                    <Icon type="mail" />新增项目信息
+                                </Menu.Item>
+                                <Menu.Item key="search" >
+                                    <Icon type="appstore" />查询项目信息
+                                </Menu.Item>
+                                <Menu.Item key="edit" >
+                                    <Icon type="appstore" />修改项目项目信息
+                                </Menu.Item>
+
+                            </Menu>
                         </div>
                     </Content>
                     <Footer style={{textAlign: 'center'}}>
-                        Ant Design ©2016 Created by Ant UED
+                        萌蛋互动网络有限公司 ©20178 Created by Aladin
                     </Footer>
                 </Layout>
             </Layout>
-
-        // {/*<Layout>*/}
-        // {/*<Row>*/}
-        // {/*<Col xs={{span: 24}} sm={{span: 24}} md={{span: 24}} lg={{span: 24}} xl={{span: 24}}>*/}
-        // {/*/!*<Header style={{background: "#49a9ee"}}>*!/*/}
-        // {/*/!*<Button type="primary" onClick={this.toggleCollapsed} style={{marginBottom: 16}}>*!/*/}
-        // {/*/!*<Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}/>*!/*/}
-        // {/*/!*</Button>*!/*/}
-        // {/*/!*<span>深圳萌蛋互动网络科技有限公司</span>*!/*/}
-        //
-        // {/*/!*</Header>*!/*/}
-        // {/*</Col>*/}
-        // {/*</Row>*/}
-        // {/*</Layout>*/}
         );
     }
 }

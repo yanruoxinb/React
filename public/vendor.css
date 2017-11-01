@@ -84,5 +84,13 @@ body {
     width: 100%;
 }
 
+.editable-row-text {
+    padding: 5px;
+}
+
+.editable-row-operations a {
+    margin-right: 8px;
+}
+
 
 

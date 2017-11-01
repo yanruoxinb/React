@@ -6,10 +6,10 @@ import ReactDOM from 'react-dom';
 // import SliderDemo from "./SlideDemo";
 // import LoginTest from  "./components/LoginTest.js";
 import BasicExample from "./testRouter"
-
+import Back from "./Back.js"
 ReactDOM.render(
 
-    <BasicExample/>,
+    <Back />,
     document.getElementById('app')
 );
 
